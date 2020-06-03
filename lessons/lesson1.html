@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJs Lesson 1</title>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer
+    ></script>
+</head>
+<body>
+    <h1>Базовый пример:</h1>
+
+<div x-data="{ msg: 'Hello, Habr!' }">
+  <input type="text" x-model="msg" />
+  <p x-text="msg"></p>
+</div>
+
+<h1>Подписка на события:</h1>
+
+<div x-data="{ counter: 1 }">
+ <h1 x-text="counter"></h1>
+ <button x-on:click="counter++">+1</button>
+</div>
+
+<h1>Условный рендеринг:</h1>
+
+<div x-data="{ show: true }">
+  <button
+    x-on:click="show = ! show"
+    x-text="show ? 'Скрыть' : 'Показать'"
+  ></button>
+  <template x-if="show">
+    <p>Меня видно!</p>
+  </template>
+</div>
+
+<h1>Циклы:</h1>
+
+<div x-data="{ items: ['habr', 'hubr', 'hobr'] }">
+  <ol>
+    <template x-for="item in items" x-bind:key="item">
+      <li>
+        <p x-text="item"></p>
+      </li>
+    </template>
+  </ol>
+</div>
+
+</body>
+</html>
